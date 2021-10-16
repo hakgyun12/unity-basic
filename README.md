@@ -170,3 +170,56 @@ NavMeshAgent 컴포넌트
 - Auto Traverse Off Mesh Link : 오프 메시 링크가 있을 경우 자동으로 탐색해서 찾아갈지 설정
 - Auto Repath : 이동 중에 경로 탐색을 다시 할지 설정 (true : 이동 중에 장애물 등으로 막혔을 때 자동으로 재 계산)
 - Area Mask : 해당 에이전트의 이동 가능한 구역 지정
+
+
+
+Off Mesh Link란?
+
+- 사다리, 암벽과 같이 수직으로 올라가거나 내려오는 길
+- 절벽 사이를 뛰어서 넘어가거나 낭떠러지 아래로 떨어지는 길과 같이
+- 메시가 끊어져 있는 곳을 이동할 수 있게 설정하는 것
+
+자동 설정
+
+1. 자동으로 Off Mesh Link를 설정한 오브젝트들을 선택
+2. Navigation View - Object Tab의 "Generate OffMeshLinks"를 체크
+3. Navigation View - Bake Tab의 낙하 높이, 점프거리르 설정하고 "Bake"를 눌러 데이터 저장
+
+장점 : 게임월드에 배치된 많은 오브젝트의 Off Mesh Link를 한꺼번에 설정가능
+
+단점 
+
+- 낙하높이와 점프거리를 하나만 설정할 수 있기 때문에 다양한 지형을 세세하게 설정하는 것이 불가능
+- 위로 올라가는 Off Mesh Link 설정 불가능
+
+수동 설정
+
+1. 연결되는 두 지점으로 사용할 오브젝트 생성 및 배치
+2. Off Mesh Link 컴포넌트를 생성하고, "Start", "End" 변수에 연결되는 두 지점을 설정한다
+
+장점
+
+- 지형에 따라 세세한 설정이 가능
+- 사다리/암벽과 같이 위로 올라가는 Off Mesh Link 설정가능
+
+단점
+
+- Off Mesh Link로 연결이 필요한 모든 부분을 직접 설정해야 함.
+
+
+
+Nav Mesh Obstacle 컴포넌트
+
+이동 오브젝트의 네비게이션 메시 설정에 컴포넌트
+
+Shape : 장애물의 모양 (Box or Capsule)
+
+Center : Shape의 중심 위치
+
+Carve : Navigation Mesh에 공간을 비울지 (true : 비운다)
+
+Move Threshold : 설정된 거리르 이동하면 오브젝트의 Navigation Mesh 데이터 갱신
+
+Time To Stationary : 설정된 시간만큼 움직임이 없으면 "멈춰 있다"라고 인식
+
+Carve Only Stationary : 멈춰 있을 때만 공간을 비울지
