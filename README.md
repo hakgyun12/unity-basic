@@ -223,3 +223,40 @@ Move Threshold : 설정된 거리르 이동하면 오브젝트의 Navigation Mes
 Time To Stationary : 설정된 시간만큼 움직임이 없으면 "멈춰 있다"라고 인식
 
 Carve Only Stationary : 멈춰 있을 때만 공간을 비울지
+
+------
+
+3. 3D Model / Animation
+
+Model : 외부에서 가져온 FBX 모델의 기본적인 정보
+
+Rig : FBX 모델의 리깅 정보
+
+Animation : FBX 모델의 애니메이션 정보
+
+Materials : FBX 모델에 적용되는 재질(material) 정보
+
+
+
+Model
+
+Rig
+
+Rigging(리깅)
+
+- 모델의 뼈대를 만들어 심거나 뼈대를 할당하여 모델이 애니메이션 될 수 있는 상태로 만드는 것
+- Animation Type
+  - None : 애니메이션이 없을 때 (지형, 건물, 아이템 등)
+  - Legacy : Unity 3.x 이전 버전에서 사용 (Animation 컴포넌트)
+  - Generic : 정점 애니메이션 (Animator 컴포넌트)
+    - 스냅샷 방식으로 정점 정보를 미리 만들어두고, 이를 재생하는 방식이기 때문에 모델링 정보가 수정되면 애니메이션도 함께 수정해야 한다. 연산속도가 빠르고 용량이 크다.
+  - Humanoid : 본 애니메이션 (Animator 컴포넌트)
+    - 뼈대를 심어 뼈대의 움직임에 맞기 메시가 움직이는 방식이기 때문에 뼈대의 정보만 일치하면 다른 모델에도  재사용할 수 있다.(리타겟팅 가능) 정점 애니메이션에 비해 연산속도가 느리고, 용량이 작다. (뼈대의 움직임을 실시간으로 연산)
+
+Avatar Definition : 아바타 정의를 가져올 위치 선택
+
+Skin Weights : 하나의 버텍스에 영향을 줄 수 있는 최대 뼈대 수
+
+Optimize Game Object : 게임오브젝트의 Transform 계층 구조를 Avatar와 Animator 컴포넌트에서 제거(성능 향상)
+
+Extra Transforms to Expose : Optimize Game Object에 체크 되어있을 때만 활성화 되는 메뉴로 체크되는 transform은 게임오브젝트의 자식 오브젝트로 출력된다. 예를 들어 오른손에 무기를 쥐어 캐릭터가 애니메이션을 할 때 무기가 오른손 위치에 따라다니게 하려면 오른손에 해당되는 Transform은 최적화하지 않고 남겨둬야 한다.
