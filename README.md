@@ -260,3 +260,15 @@ Skin Weights : 하나의 버텍스에 영향을 줄 수 있는 최대 뼈대 수
 Optimize Game Object : 게임오브젝트의 Transform 계층 구조를 Avatar와 Animator 컴포넌트에서 제거(성능 향상)
 
 Extra Transforms to Expose : Optimize Game Object에 체크 되어있을 때만 활성화 되는 메뉴로 체크되는 transform은 게임오브젝트의 자식 오브젝트로 출력된다. 예를 들어 오른손에 무기를 쥐어 캐릭터가 애니메이션을 할 때 무기가 오른손 위치에 따라다니게 하려면 오른손에 해당되는 Transform은 최적화하지 않고 남겨둬야 한다.
+
+------
+
+04-01
+
+New Layer
+
+- Weight : 가중치를 설정해서 합성하는 정도를  선택
+- Mask : 현재 레이어에서 사용할 Avatar Mask
+- Blending : 앞 순서의 애니메이션 계산에 덮어 쓸 것인지 (Override) 가산(Additive) 할 것인지 선택
+- Sync : 다른 레이어와의 동기화 설정
+- IK Pass : IK 애니메이션 사용 여부
