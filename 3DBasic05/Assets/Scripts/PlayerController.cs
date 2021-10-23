@@ -40,5 +40,17 @@ public class PlayerController : MonoBehaviour
             playerAnimator.OnJump(); // 애니메이션 파라미터 설정 (onJump)
             movement3D.JumpTo(); // 점프 함수 호출
         }
+
+        // 마우스 왼쪽 버튼을 누르면 발차기 공격
+        if (Input.GetMouseButtonDown(0))
+        {
+            playerAnimator.OnKickAttack();
+        }
+
+        // 마우스 오른쪽 버튼을 누르면 무기 공격 (연계)
+        if (Input.GetMouseButtonDown(1))
+        {
+            playerAnimator.OnWeaponAttack();
+        }
     }
 }
