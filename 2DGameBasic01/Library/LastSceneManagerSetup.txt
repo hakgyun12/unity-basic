@@ -1,0 +1,5 @@
+sceneSetups:
+- path: C:/Users/Admin/Downloads/2DGameBasic02/Assets/Scenes/#06TriggerEvent.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
